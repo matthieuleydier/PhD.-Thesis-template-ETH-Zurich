@@ -1,0 +1,35 @@
+
+\chapter*{Curriculum vitae and list of publications}
+\chaptermark{Curriculum vitae and list of publications}
+\phantomsection{}
+\addcontentsline{toc}{chapter}{\protect Curriculum vitae  and list of publications}
+\blankpage
+
+
+\includepdf[pages=-]{CV} %%%%%%% Change in CV.tex file will be reflected in here
+\cleardoublepage
+
+
+\begin{center}
+	{\LARGE \bfseries List of publications}\\
+\end{center}
+%%%%%%% Change in Publication.tex file will be reflected in here
+\rule{\textwidth}{4pt}
+\vspace{1.5cm}
+\input{Publication}
+\vspace{1.5cm}
+
+% following of optional matter if you have published any paper in conference put it in conPapers.tex and if your have any conference presentation put it in conPresentaion.tex
+\begin{comment}
+\noindent\textbf{\Large Conference Proceedings}\\
+\input{conPapers}
+\vspace{1.5cm}
+
+
+
+\noindent\textbf{\Large Conference Presentations}\\
+\input{conPresentation}
+\cleardoublepage
+\end{comment}
+
+\include{declaration}

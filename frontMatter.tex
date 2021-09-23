@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%					Front Page Setting				%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+	\phantomsection{}
+	\pdfbookmark[0]{Title page}{title} % Sets a PDF bookmark for the title page
+	\newgeometry{margin=10mm,left= 30mm, top=4cm, bottom=10mm}
+
+
+\begin{center}
+		
+{\Large DISS. ETH NO.----}\\
+\vspace{2cm}
+
+
+	%----------------  title of the report ----------------------------%
+	{\Large \bfseries Thesis title}
+	\vspace{3cm}
+	
+
+%------------------Author's Details  -----------------%
+{\large A thesis submitted to attain the degree of\\
+	
+	\MakeUppercase{Doctor of sciences} of \MakeUppercase{ETH Z\"urich}\\
+	
+	(Dr. sc. ETH Z\"rich)\\ 
+	
+	
+	\vspace{2.cm}
+	presented by\\
+	
+	\vspace{.4cm}
+	\MakeUppercase{Author's Name}\\
+	
+	MSc in Materials Science\\\vspace{.4cm}
+	born on 19.09.19--\\
+	citizen of India\\
+	\vspace{3cm}
+	
+	Accepted on the recommendation of\\\vspace{.6cm}
+	Prof. Dr. Unknown, examiner\\
+	Prof. Dr. 420, co-examiner\\
+	Dr. 786, co-examiner
+}
+\vfill
+2021
+\end{center}
+
+
+\blankpage
+\restoregeometry
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                     Front matter              %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                     Abstract                  %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+\setcounter{page}{1}
+\phantomsection{}
+\section*{\centering\LARGE Abstract} 
+\addcontentsline{toc}{chapter}{\protect Abstract} % adding Abstract to table of content
+\input{abstract}
+\clearpage
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                    Acknowledgements           %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection{}
+\section*{\centering\LARGE Acknowledgements}
+\input{acknowledgements}
+\addcontentsline{toc}{chapter}{\protect Acknowledgements}
+\clearpage
+\end{titlepage}

@@ -1,0 +1,288 @@
+%   Author name: Suraj K. Maurya, email id: mauryaksuraj@gmail.com
+%	Allrights of this teplate is resereved 
+%	Commercial use of this template is strictly PROHIBITED
+
+\documentclass[11pt,paper=14.8cm:21cm,twoside,pagesize=auto, bibliography=totocnumbered]{report}
+\usepackage[margin= 2.5cm, inner=3cm,outer=2.5cm]{geometry} %setting dualside page: left=3cm,right=2cm would be equivalent
+\usepackage{import}
+\usepackage[english]{babel}% Language settings
+\usepackage{float}
+\usepackage{fancyref}
+%\usepackage{fancyhdr}
+\usepackage{comment}  % |- helps in commenting multiple line
+\usepackage[titletoc]{appendix} 
+\pagestyle{plain}
+\usepackage{booktabs, multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage{changepage,threeparttable}
+\usepackage{xfrac}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{url}
+%\usepackage{upgreek}  % it creates non-italic greek letter 
+\usepackage[T1]{fontenc}          % Ensure correct font encoding.
+\usepackage{mathptmx}             % -
+\usepackage[scaled=.90]{helvet} %  %  |- Better than using pslatex (something about scaling).
+\usepackage{courier}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage[utf8]{inputenc}
+%\usepackage[subsectionbib]{bibunits} %  |- provides chapter/sectionwise bibliography
+\usepackage{pdfpages}  % |- let you insert pdf directly 
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xstring}%add bar symbol over the letter and symbols, numbers
+%\usepackage{rotating} %help to rotate table using the "sidewaystable"
+\usepackage{IEEEtrantools}
+\usepackage{fixltx2e}  % subscript and superscript at the same time
+\def\SPSB#1#2{\rlap{\textsuperscript{\textcolor{black}{#1}}}\SB{#2}} % super and subscript together 
+\def\SP#1{\textsuperscript{\textcolor{black}{#1	}}} % superscript
+\def\SB#1{\textsubscript{\textcolor{black}{#1}}}   %subscript
+
+\DeclareUnicodeCharacter{0301}{\'{e}} %to avoide unicode charecter error in bib
+
+
+\renewcommand{\thefootnote}{\$} % setting footnote numbering to alpaha\\
+\usepackage{graphicx}
+\graphicspath{{images/}} %Setting the graphicspath
+
+\usepackage{cellspace} %for the cellspace setting of the tables
+\setlength\cellspacetoplimit{6pt}
+\setlength\cellspacebottomlimit{6pt}
+\usepackage{makecell}
+\setcellgapes{6pt}
+\usepackage{textcomp}
+
+\usepackage{tocloft}
+\setlength{\cfttabnumwidth}{4em} %ading space between the table no. and cation in LOT
+ 
+%\addto{\captionsenglish}{\renewcommand{\figurename}{\color{red}Figure}}
+
+
+
+%-------------------------------------------------------
+% increasing the subsection depth 
+%-------------------------------------------------------
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+
+
+
+
+
+
+%----------------------------------------------------
+% setting new list for Abbreviations
+%----------------------------------------------------
+\newlist{abbrv}{itemize}{1} 
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+
+
+
+
+
+
+
+%----------------------------------------------------
+% |- Caption Styling
+%---------------------------------------------------
+%\usepackage{tgbonum} % allow to hange font family
+\usepackage[margin=20pt,font=small,labelfont=bf,
+labelsep=endash]{caption}
+\setlength{\abovecaptionskip}{4pt}
+
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Setteing Equation Numbering according to section eg.-    
+% redefine the command that creates the equation no.    
+%\setcounter{equation}{0}
+
+
+
+\usepackage{hyperref,bookmark} %hyper reference the TOC image and table etc
+\hypersetup{
+	colorlinks=true,
+	linkcolor= blue, % blue
+	filecolor=black, %magenta  
+	urlcolor=cyan,  %cyan
+	bookmarks=true,
+}
+
+
+
+
+\pdfminorversion=5
+
+\pdfcompresslevel=9
+\pdfobjcompresslevel=2
+
+%--------------------------------------------------------------
+% Defining a commad to add a blank page after the chapter
+%--------------------------------------------------------------
+		%IMPORTANT: calling \blankpage will remove header and footer from the current page and add a blank page after it
+\newcommand{\blankpage}{
+	\thispagestyle{empty}
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage}
+
+
+
+
+
+
+%--------------------------------------------------------------
+% setting length of space between teh figure no.  and caption
+%--------------------------------------------------------------
+\usepackage{tocloft} 
+\setlength{\cftfignumwidth}{4em}
+
+
+
+
+ %changing bibliography => References
+\addto{\captionsenglish}{\renewcommand*{\bibname}{References}}
+
+
+
+
+%paragraph setting
+\parindent 15pt
+\parskip -10pt
+\renewcommand{\baselinestretch}{1.33}
+
+
+
+
+
+
+
+
+\begin{document}
+	
+	
+	
+%----------------------------------------------------------------	
+% hyper refrencing the TOC: creating pdf bookmarks	
+%----------------------------------------------------------------	
+\providecommand\phantomsection{}
+\addtocontents{toc}{\protect{\pdfbookmark[0]{\contentsname}{toc}}} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% insert title page and frontmatter %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\import{./}{frontMatter.tex}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%  insert table of contents and Abbreviations  %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\include{contents}
+
+\include{Abbreviations}
+
+%Setting page numbering for the chapters 
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+
+
+
+%----------------------------------------------------------------------------
+% Defining formate for the chapter title
+%----------------------------------------------------------------------------
+
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\LARGE} % format
+{\chaptertitlename \ \thechapter} % label
+{5ex} % sep
+{
+	\rule{\textwidth}{1pt}
+	\vspace{1ex}
+	\centering
+} % before-code
+[
+\vspace{-1ex}%
+\rule{\textwidth}{4pt}
+] % after-code
+
+%changing page style formate and setting headers 
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LO]{\small\itshape\nouppercase{\rightmark}}
+\fancyhead[RE]{\small\itshape\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{.5pt}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%   insert chapters  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{chapter1}
+
+\include{chapter2}
+
+\include{chapter3}
+
+\include{chapter4}
+
+\include{chapter5}
+
+\include{conclusion} %chapter 6
+
+\include{outlook}  %chapter 7
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%	Appendix Chapter	%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendices}
+	\renewcommand*{\thechapter}{\arabic{chapter}} % changing appendix numbering to numerical
+	
+	
+	%insert different chapters of the appendics
+	\include{appendix_A}
+	\include{appendix_B}
+\end{appendices}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%	Global Bibliography	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{biblio}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%			End Matter 			%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\import{./}{endMatter.tex}
+% endMatter.tex contains:
+%			- CV.pdf, Put your CV in the folder in which
+%			  main_thesis.tex is present: IMPORTANT: any change in CV.pdf will automatically reflect in the main_thesis.pdf after compiling the main_thesis.tex file.
+
+
+\end{document}

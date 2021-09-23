@@ -1,0 +1,32 @@
+\phantomsection
+
+{
+	\hypersetup{linkcolor=black}
+	\tableofcontents
+}
+\thispagestyle{empty}
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\cleardoublepage
+
+
+%\pagenumbering{roman}
+%\setcounter{page}{4}
+\phantomsection
+{
+	\hypersetup{linkcolor=black}
+\listoffigures
+}
+
+\addcontentsline{toc}{chapter}{\protect List of Figures}
+\cleardoublepage
+
+\phantomsection
+
+{
+	\hypersetup{linkcolor=black}
+	\listoftables
+}
+\addcontentsline{toc}{chapter}{\protect List of Tables}
+\thispagestyle{empty}
+\cleardoublepage
